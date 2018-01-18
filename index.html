@@ -14,13 +14,15 @@
       
       <!-- Define camera with zero user height, movement disabled and arrow key rotation added. -->
       <a-camera user-height="0" wasd-controls-enabled="false" arrow-key-rotation>
-        <!-- Text element for display messaging. -->
-        <a-entity id="msg" position="0 -0.3 -1.5" text="align:center; 
-                width:2;
-                wrapCount:100;
-                color:white;
-                value:Text about stuffity stuff stuff and more stuff goes here, I think.  Actually, I'm pretty sure it goes here.">
-        </a-entity>
+        <a-image src="#text_box" position="0 -0.3 -1.5" height="1" width="1">
+          <!-- Text element for display messaging. -->
+          <a-entity id="msg" position="-0.05 0 0"text="align:center; 
+                  width:0.8;
+                  wrapCount:20;
+                  color:white;
+                  value:Text about stuffity stuff stuff and more stuff goes here, I think.  Actually, I'm pretty sure it goes here.">
+          </a-entity>
+        </a-image>
       </a-camera>      
       
       <!-- Wait for the video to load. -->
@@ -30,8 +32,10 @@
                autoplay loop crossorigin="anonymous" playsinline webkit-playsinline>
           <!-- MP4 video source. -->
           <source type="video/mp4"
-               src="video/Trim_360_NY_Subway.mp4" />
+               src="video/Trim_360_NY_Subway_30sec.mp4" />
         </video>
+        <!-- Text Box Image -->
+        <img id="text_box" src="image/text_box.png">
       </a-assets>
     </a-scene>
   </body>
