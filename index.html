@@ -13,18 +13,20 @@
       <a-videosphere rotation="0 180 0" src="#video"></a-videosphere>
       
       <!-- Define camera with zero user height, movement disabled and arrow key rotation added. -->
-      <a-camera user-height="0" wasd-controls-enabled="false" arrow-key-rotation>
-        <a-image src="#text_box" position="0 -0.3 -1.5" height="1" width="1">
-          <!-- Text element for display messaging. -->
-          <a-entity id="msg" position="-0.05 0.05 0"text="align:center; 
-                  width:0.8;
-                  wrapCount:20;
-                  color:white;
-                  value:Healthcare organizations have begun to realize that healthcare should be organized around the patient, not the enterprise. (The Guardian, 2017)">
-          </a-entity>
-        </a-image>
-      </a-camera>      
+      <a-camera user-height="0" wasd-controls-enabled="false" arrow-key-rotation></a-camera>      
       
+      <!-- Text element for display messaging. -->
+      <a-plane color="#000000" height="1" width="1" position="0 -1 -1" rotation="-30 0 0">
+        <a-entity id="msg" position="0 0 0.01" rotation="0 0 0" gemometry="primitive: plane; width: 1; height: 1;" text="align:center; 
+              width:0.8;
+              wrapCount:20;
+              color:white;
+              value:Welcome.  You are currently journeying to the City of Sonder.">
+        </a-entity>
+      </a-plane>
+      <a-box color="#000000" height="9" width="0.5" depth="0.5" position="0 -6 -2"></a-box>
+      <a-cylinder color="#000000" height="0.1" radius="3" position="0 -10 0"></a-cylinder>
+
       <!-- Wait for the video to load. -->
       <a-assets>
         <!-- Single source video. -->
@@ -38,5 +40,36 @@
         <img id="text_box" src="image/text_box.png">
       </a-assets>
     </a-scene>
+
+    <script>
+      var info = [
+        "Welcome.  You are currently journeying to the City of Sonder.",
+        "This panel will provide you with statistics to think about on your journey.",
+        "1.4 million children ages 8 to 18 provide care for an adult relative; 72% are caring for a parent or grandparent; and 64% live in the same household as their care recipient.",
+        "20% of employed female caregivers over 50 years of age report symptoms of depression, compared to 8% of their non-caregiving peers.",
+        "22% of family caregivers say they need help communicating with physicians.",
+        "Multigenerational caregivers experience high levels of stress, and many report simply not having enough time in the day to accomplish their multitude of responsibilities.",
+        "About one-in-seven middle-aged adults are providing financial support to both an aging parent and a child.",
+        "Nourishing yourself engages every aspect of your being—physical, social, emotional, mental, and spiritual. When any of these aspects are unbalanced, eating behaviors can suffer.",
+        "Years of research have demonstrated that diet quality has a huge effect on physical condition, cognitive condition, bone health, eye health, vascular function, and the immune system.",
+        "Older adults are at greater risk for nutritional deficiencies than younger adults due to physiologic changes associated with aging, acute and chronic illnesses, prescription and over-the-counter medications, financial and social status, and functional decline.",
+        "Of the millions of older adults admitted to the hospital every year, at least one in three is malnourished upon admission. It is estimated that disease-associated malnutrition costs the US $157 billion each year.",
+        "Diabetes affects nearly 24 million Americans, making it one of the most common chronic conditions in the US.",
+        "Lifestyle interventions, such as diet and exercise, reduced diabetes incidence by 58 percent, compared to only 31 percent with drugs.",
+        "Thank you and enjoy your time in the City of Sonder."
+      ];
+      
+      var i = 0;
+
+      setInterval(function() {
+      document.getElementById("msg").setAttribute("text", "value", info[i]);
+          if (i == info.length) {
+              i = 0;
+          }
+          else {
+              i++;
+          }
+      }, 3 * 1000);
+    </script>
   </body>
 </html>
